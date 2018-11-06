@@ -1,6 +1,7 @@
 package secao_08_aula100;
 
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -54,5 +55,26 @@ public class Pedido {
 	
 	public void removeItem(ItemPedido item){
 		this.itens.remove(item);
+	}
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy hh:mm");
+		
+		StringBuilder sb = new StringBuilder();
+		sb.append("Data/Hora: ").append(sdf.format(this.momento) + "\n");
+		sb.append("Status : " + statusPedido.toString() + "\n");
+		sb.append(cliente);
+		
+		double soma = 0;
+		for (ItemPedido itemPedido : itens) {
+			soma += itemPedido.getTotal();
+			sb.append(itemPedido + "\n");
+		}
+		sb.append("Total: " + soma);
+		
+		return sb.toString();
 	}
 }

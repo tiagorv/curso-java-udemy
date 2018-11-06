@@ -8,6 +8,11 @@ public class Produto {
 	public Produto(){
 		
 	}
+	
+	public Produto(String nome, Double preco) {
+		this.nome = nome;
+		this.preco = preco;
+	}
 
 	public String getNome() {
 		return nome;
@@ -23,5 +28,10 @@ public class Produto {
 
 	public void setPreco(Double preco) {
 		this.preco = preco;
+	}
+	
+	@Override
+	public String toString() {
+		return this.nome;
 	}
 }

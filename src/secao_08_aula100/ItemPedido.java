@@ -39,4 +39,15 @@ public class ItemPedido {
 	public void setProduto(Produto produto) {
 		this.produto = produto;
 	}
+	
+	public double getTotal(){
+		return this.getQuantidade() * this.getPreco();
+	}
+	
+	@Override
+	public String toString() {
+		return this.produto + ",R$: " + this.preco + ", Quantidade: " + this.quantidade + 
+			" SubTotal R$: " + this.getTotal();
+	}
+	
 }
